@@ -20,6 +20,9 @@ Try these in order:
 # OPTION 1: Use the automated script (Linux/Mac)
 ./clear-cache.sh
 
+# Note: If you get "permission denied", run this first:
+# chmod +x clear-cache.sh
+
 # OPTION 2: Windows users
 clear-cache.bat
 

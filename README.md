@@ -87,6 +87,8 @@ clear-cache.bat
 ./clear-cache.sh
 ```
 
+*Note: If you get a "permission denied" error, run `chmod +x clear-cache.sh` first to make the script executable.*
+
 **Manual cleanup**:
 ```bash
 npm run clear-all    # Clears all caches

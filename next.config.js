@@ -27,7 +27,7 @@ const nextConfig = {
     if (process.env.NODE_ENV === 'development') {
       return [
         {
-          // Apply to all routes including static files
+          // Apply to all routes (specific rules below add additional headers)
           source: '/:path*',
           headers: [
             {
@@ -53,7 +53,7 @@ const nextConfig = {
           ],
         },
         {
-          // Specific headers for static assets
+          // Additional headers for Next.js static assets
           source: '/_next/static/:path*',
           headers: [
             {

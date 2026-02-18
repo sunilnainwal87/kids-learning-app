@@ -43,6 +43,12 @@ clear-cache.bat
 ./clear-cache.sh
 ```
 
+*Note: If you get a "permission denied" error, make the script executable first:*
+```bash
+chmod +x clear-cache.sh
+./clear-cache.sh
+```
+
 These scripts will:
 - Stop any process running on port 3000
 - Clear all Next.js caches (.next directory)
