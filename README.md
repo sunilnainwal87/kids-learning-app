@@ -17,30 +17,65 @@ An interactive educational web application for kids in Class 2-3 to learn Scienc
 - Tailwind CSS
 - Framer Motion
 
-## Getting Started
+## 🚀 Quick Start - For Parents & Kids!
 
+### First Time Setup (Do this once)
+
+1. **Install Node.js** if you haven't already:
+   - Download from: https://nodejs.org/
+   - Install the LTS version (recommended)
+   - Restart your computer after installation
+
+2. **Open Terminal/Command Prompt**:
+   - **Windows**: Press `Win + R`, type `cmd`, press Enter
+   - **Mac**: Press `Cmd + Space`, type `terminal`, press Enter
+   - **Linux**: Press `Ctrl + Alt + T`
+
+3. **Navigate to the project folder**:
+   ```bash
+   cd path/to/kids-learning-app
+   ```
+
+4. **Install the app**:
+   ```bash
+   npm install
+   ```
+   (This might take a few minutes)
+
+### Running the App (Every time you want to use it)
+
+#### Easy Way (Recommended):
+**Windows**: Double-click `start-dev.bat`
+**Mac/Linux**: Double-click `start-dev.sh` or run:
 ```bash
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
-
-# Build for production
-npm run build
+./start-dev.sh
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the app.
+#### Manual Way:
+```bash
+npm run dev
+```
 
-### Troubleshooting - If you don't see latest changes:
+**Then:**
+1. Wait for the message: `Ready in X seconds`
+2. Open your browser to: **http://localhost:3000**
+3. **Keep the terminal window open!** (Closing it stops the app)
 
-If your code changes aren't appearing in the browser:
+### ⚠️ Can't See Your Changes?
+
+**The #1 reason**: The development server isn't running!
+- Check if you see "Ready" in the terminal
+- Make sure you didn't close the terminal window
+
+**If the server is running but changes don't appear**:
 
 1. **Hard refresh the browser**: Press `Ctrl+Shift+R` (Windows/Linux) or `Cmd+Shift+R` (Mac)
 2. **Clear Next.js cache**: Run `npm run clean` then `npm run dev`
-3. **Fresh start with cache clearing**: Run `npm run dev:fresh`
-4. **Clear browser cache**: In your browser settings, clear cache and hard reload
-5. **Restart the dev server**: Stop the server (Ctrl+C) and run `npm run dev` again
+3. **Fresh start**: Run `npm run dev:fresh`
+4. **Clear browser cache**: In your browser settings, clear cache and reload
+5. **Restart the server**: Press `Ctrl+C` in terminal, then run `npm run dev` again
+
+📖 **For detailed help**, see [DEVELOPMENT_GUIDE.md](./DEVELOPMENT_GUIDE.md)
 
 ## Project Structure
 
