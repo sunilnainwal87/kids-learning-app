@@ -9,10 +9,12 @@ export default function DevelopmentBanner() {
   useEffect(() => {
     // Only show in development mode
     if (process.env.NODE_ENV === 'development') {
-      // Check if user has dismissed it before
-      const dismissed = localStorage.getItem('dev-banner-dismissed');
-      if (!dismissed) {
-        setIsVisible(true);
+      // Check if user has dismissed it before (only on client side)
+      if (typeof window !== 'undefined') {
+        const dismissed = localStorage.getItem('dev-banner-dismissed');
+        if (!dismissed) {
+          setIsVisible(true);
+        }
       }
     }
   }, []);

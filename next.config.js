@@ -8,7 +8,7 @@ const nextConfig = {
   webpack: (config, { dev, isServer }) => {
     if (dev && !isServer) {
       config.watchOptions = {
-        poll: 1000, // Check for changes every second
+        poll: 2000, // Check for changes every 2 seconds (balanced performance)
         aggregateTimeout: 300, // Delay before rebuilding
       };
     }
