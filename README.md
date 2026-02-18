@@ -32,6 +32,16 @@ npm run build
 
 Open [http://localhost:3000](http://localhost:3000) to view the app.
 
+### Troubleshooting - If you don't see latest changes:
+
+If your code changes aren't appearing in the browser:
+
+1. **Hard refresh the browser**: Press `Ctrl+Shift+R` (Windows/Linux) or `Cmd+Shift+R` (Mac)
+2. **Clear Next.js cache**: Run `npm run clean` then `npm run dev`
+3. **Fresh start with cache clearing**: Run `npm run dev:fresh`
+4. **Clear browser cache**: In your browser settings, clear cache and hard reload
+5. **Restart the dev server**: Stop the server (Ctrl+C) and run `npm run dev` again
+
 ## Project Structure
 
 - `/src/app` - Next.js app router pages
