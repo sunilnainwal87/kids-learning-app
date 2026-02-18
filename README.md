@@ -69,13 +69,40 @@ npm run dev
 
 **If the server is running but changes don't appear**:
 
+#### Quick Solutions (Try these first):
 1. **Hard refresh the browser**: Press `Ctrl+Shift+R` (Windows/Linux) or `Cmd+Shift+R` (Mac)
-2. **Clear Next.js cache**: Run `npm run clean` then `npm run dev`
-3. **Fresh start**: Run `npm run dev:fresh`
-4. **Clear browser cache**: In your browser settings, clear cache and reload
+2. **Use the Force Refresh button**: Look for the "🔄 Force Refresh" button in development mode
+3. **Check browser console**: Press `F12` to see if there are any errors
+
+#### Clear All Caches (Recommended):
+Use our automated cache-clearing scripts:
+
+**Windows**:
+```bash
+clear-cache.bat
+```
+
+**Mac/Linux**:
+```bash
+./clear-cache.sh
+```
+
+*Note: If you get a "permission denied" error, run `chmod +x clear-cache.sh` first to make the script executable.*
+
+**Manual cleanup**:
+```bash
+npm run clear-all    # Clears all caches
+npm run dev          # Start fresh
+```
+
+#### Other Solutions:
+1. **Clear Next.js cache**: Run `npm run clean` then `npm run dev`
+2. **Fresh start**: Run `npm run dev:fresh`
+3. **Clear browser cache**: In your browser settings, clear cache and cookies for localhost
+4. **Try incognito mode**: Open http://localhost:3000 in private/incognito window
 5. **Restart the server**: Press `Ctrl+C` in terminal, then run `npm run dev` again
 
-📖 **For detailed help**, see [DEVELOPMENT_GUIDE.md](./DEVELOPMENT_GUIDE.md)
+📖 **For detailed help**, see [DEVELOPMENT_GUIDE.md](./DEVELOPMENT_GUIDE.md) or [TROUBLESHOOTING.md](./TROUBLESHOOTING.md)
 
 ## Project Structure
 

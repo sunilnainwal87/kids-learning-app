@@ -15,9 +15,18 @@ Try these in order:
 - **Windows/Linux**: `Ctrl + Shift + R`
 - **Mac**: `Cmd + Shift + R`
 
-#### 2. Clear Cache and Restart
+#### 2. Clear Cache and Restart (Recommended!)
 ```bash
-# Press Ctrl+C to stop the server, then:
+# OPTION 1: Use the automated script (Linux/Mac)
+./clear-cache.sh
+
+# Note: If you get "permission denied", run this first:
+# chmod +x clear-cache.sh
+
+# OPTION 2: Windows users
+clear-cache.bat
+
+# OPTION 3: Manual cleanup
 npm run dev:fresh
 ```
 

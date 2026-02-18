@@ -31,10 +31,42 @@ If the server is running but changes don't appear:
 - **Mac**: Press `Cmd + Shift + R`
 - **Alternative**: Press `Ctrl/Cmd + F5`
 
-#### Option B: Clear Next.js Cache
+#### Option B: Use Automated Cache Clearing Scripts (Easiest!)
+
+**Windows**:
+```bash
+clear-cache.bat
+```
+
+**Mac/Linux**:
+```bash
+./clear-cache.sh
+```
+
+*Note: If you get a "permission denied" error, make the script executable first:*
+```bash
+chmod +x clear-cache.sh
+./clear-cache.sh
+```
+
+These scripts will:
+- Stop any process running on port 3000
+- Clear all Next.js caches (.next directory)
+- Clear node_modules cache
+- Clear ESLint cache
+- Provide instructions for next steps
+
+#### Option C: Clear Next.js Cache Manually
 ```bash
 # Stop the server first (Ctrl+C in the terminal)
 npm run clean
+npm run dev
+```
+
+#### Option D: Clear All Caches
+```bash
+# Stop the server first (Ctrl+C in the terminal)
+npm run clear-all
 npm run dev
 ```
 
@@ -44,12 +76,14 @@ npm run dev
 npm run dev:fresh
 ```
 
-#### Option D: Clear Browser Cache
+#### Option E: Clear Browser Cache
 1. Open browser settings
 2. Find "Clear browsing data" or "Clear cache"
 3. Select "Cached images and files"
 4. Click "Clear data"
 5. Refresh the page
+
+**💡 Pro Tip**: For persistent caching issues, try opening http://localhost:3000 in an incognito/private window to test without any cached data.
 
 ### Step 3: Common Issues 🔧
 
@@ -119,9 +153,12 @@ kids-learning-app/
 | `npm run dev` | Start development server with hot reload |
 | `npm run dev:fresh` | Clear cache and start fresh dev server |
 | `npm run clean` | Clear Next.js cache |
+| `npm run clear-all` | Clear all caches (Next.js, node_modules, ESLint) |
 | `npm run build` | Build for production |
 | `npm run start` | Run production build |
 | `npm run lint` | Check code for issues |
+| `./clear-cache.sh` | (Mac/Linux) Automated cache clearing script |
+| `clear-cache.bat` | (Windows) Automated cache clearing script |
 
 ## 🔥 Hot Module Replacement (HMR)
 

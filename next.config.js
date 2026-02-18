@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Disable ETag generation to prevent conditional requests with old cached content
+  generateEtags: false,
   images: {
     remotePatterns: [
       {
@@ -25,6 +27,7 @@ const nextConfig = {
     if (process.env.NODE_ENV === 'development') {
       return [
         {
+          // Apply to all routes (specific rules below add additional headers)
           source: '/:path*',
           headers: [
             {
@@ -42,6 +45,20 @@ const nextConfig = {
             {
               key: 'Surrogate-Control',
               value: 'no-store',
+            },
+            {
+              key: 'X-Content-Type-Options',
+              value: 'nosniff',
+            },
+          ],
+        },
+        {
+          // Additional headers for Next.js static assets
+          source: '/_next/static/:path*',
+          headers: [
+            {
+              key: 'Cache-Control',
+              value: 'no-store, no-cache, must-revalidate, max-age=0',
             },
           ],
         },
