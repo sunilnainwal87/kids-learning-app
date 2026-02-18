@@ -46,3 +46,13 @@ export interface QuizResult {
   incorrectQuestions: number[];
   date: string;
 }
+
+export interface LeaderboardEntry {
+  playerName: string;
+  score: number;
+  totalQuestions: number;
+  percentage: number;
+  subjectId: string;
+  date: string;
+  timeTaken?: number; // in seconds
+}
