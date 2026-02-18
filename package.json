@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "clean": "rimraf .next node_modules/.cache",
-    "dev:fresh": "npm run clean && next dev"
+    "dev:fresh": "npm run clean && next dev",
+    "fix-cache": "echo 'Clearing Next.js cache...' && npm run clean && echo 'Cache cleared! Now run: npm run dev'"
   },
   "dependencies": {
     "framer-motion": "^11.0.0",

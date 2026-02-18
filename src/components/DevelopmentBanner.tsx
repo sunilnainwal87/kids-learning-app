@@ -5,10 +5,25 @@ import { useState, useEffect } from 'react';
 export default function DevelopmentBanner() {
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
+  const [lastRefresh, setLastRefresh] = useState<string>('');
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+    
     // Only show in development mode
     if (process.env.NODE_ENV === 'development') {
+      // Log to console to help with debugging
+      console.log('%c🛠️ Development Mode Active', 'color: #4F46E5; font-size: 16px; font-weight: bold;');
+      console.log('%c✓ Hot reload enabled - changes will appear automatically', 'color: #10B981;');
+      console.log('%c⚡ Not seeing changes? Try Ctrl+Shift+R (hard refresh)', 'color: #F59E0B;');
+      console.log('%c📖 Having issues? Check DEVELOPMENT_GUIDE.md', 'color: #F97316;');
+      
+      // Show timestamp of page load
+      const now = new Date().toLocaleTimeString();
+      setLastRefresh(now);
+      console.log(`%c🕐 Page loaded at: ${now}`, 'color: #6366F1;');
+      
       // Check if user has dismissed it before (only on client side)
       if (typeof window !== 'undefined') {
         const dismissed = localStorage.getItem('dev-banner-dismissed');
@@ -31,6 +46,13 @@ export default function DevelopmentBanner() {
     setIsDismissed(false);
   };
 
+  const handleForceRefresh = () => {
+    // Hard reload the page to clear all caches
+    if (typeof window !== 'undefined') {
+      window.location.reload();
+    }
+  };
+
   if (process.env.NODE_ENV !== 'development') {
     return null;
   }
@@ -41,12 +63,26 @@ export default function DevelopmentBanner() {
 
   if (!isVisible && isDismissed) {
     return (
-      <button
-        onClick={handleClearDismissal}
-        className="fixed bottom-4 right-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg text-sm z-50"
-      >
-        💡 Show Dev Tips
-      </button>
+      <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
+        <button
+          onClick={handleForceRefresh}
+          className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium"
+          title="Force refresh to see latest changes"
+        >
+          🔄 Force Refresh
+        </button>
+        <button
+          onClick={handleClearDismissal}
+          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg text-sm"
+        >
+          💡 Show Dev Tips
+        </button>
+        {mounted && lastRefresh && (
+          <div className="bg-gray-800 text-white px-3 py-1 rounded text-xs text-center">
+            Loaded: {lastRefresh}
+          </div>
+        )}
+      </div>
     );
   }
 
@@ -57,6 +93,9 @@ export default function DevelopmentBanner() {
           <div className="flex items-center gap-2 mb-2">
             <span className="text-2xl">🛠️</span>
             <h3 className="font-bold text-lg">Development Mode Active</h3>
+            {mounted && lastRefresh && (
+              <span className="text-xs bg-white/20 px-2 py-1 rounded">Loaded: {lastRefresh}</span>
+            )}
           </div>
           <div className="text-sm space-y-1">
             <p className="flex items-center gap-2">
@@ -65,21 +104,30 @@ export default function DevelopmentBanner() {
             </p>
             <p className="flex items-center gap-2">
               <span className="text-yellow-300">⚡</span>
-              <span><strong>Not seeing changes?</strong> Try: <code className="bg-white/20 px-2 py-0.5 rounded">Ctrl+Shift+R</code> (hard refresh)</span>
+              <span><strong>Not seeing changes?</strong> Click the &quot;Force Refresh&quot; button or press <code className="bg-white/20 px-2 py-0.5 rounded">Ctrl+Shift+R</code></span>
             </p>
             <p className="flex items-center gap-2">
               <span className="text-orange-300">📖</span>
-              <span>Need help? Check <code className="bg-white/20 px-2 py-0.5 rounded">DEVELOPMENT_GUIDE.md</code></span>
+              <span>Need help? Check <code className="bg-white/20 px-2 py-0.5 rounded">DEVELOPMENT_GUIDE.md</code> or <code className="bg-white/20 px-2 py-0.5 rounded">TROUBLESHOOTING.md</code></span>
             </p>
           </div>
         </div>
-        <button
-          onClick={handleDismiss}
-          className="bg-white/20 hover:bg-white/30 rounded-full w-8 h-8 flex items-center justify-center transition-colors flex-shrink-0"
-          aria-label="Dismiss"
-        >
-          ✕
-        </button>
+        <div className="flex items-start gap-2">
+          <button
+            onClick={handleForceRefresh}
+            className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium transition-colors"
+            title="Force refresh to see latest changes"
+          >
+            🔄 Force Refresh
+          </button>
+          <button
+            onClick={handleDismiss}
+            className="bg-white/20 hover:bg-white/30 rounded-full w-8 h-8 flex items-center justify-center transition-colors flex-shrink-0"
+            aria-label="Dismiss"
+          >
+            ✕
+          </button>
+        </div>
       </div>
     </div>
   );

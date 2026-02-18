@@ -9,8 +9,20 @@ export default function Home() {
   const [quizResults, setQuizResults] = useState<QuizResult[]>([]);
   const [totalQuizzesTaken, setTotalQuizzesTaken] = useState(0);
   const [averageScore, setAverageScore] = useState(0);
+  const [pageLoadTime, setPageLoadTime] = useState<string>('');
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // Set mounted and page load time on client side only
+    setMounted(true);
+    const loadTime = new Date().toLocaleTimeString();
+    setPageLoadTime(loadTime);
+    
+    // Log page load in development
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`%c🏠 Home page loaded at ${loadTime}`, 'color: #10B981; font-weight: bold;');
+    }
+    
     // Load quiz results from localStorage
     try {
       const savedResults = localStorage.getItem('quizResults');
@@ -48,6 +60,11 @@ export default function Home() {
           <p className="text-2xl text-gray-700">
             Choose a subject to start learning and having fun!
           </p>
+          {process.env.NODE_ENV === 'development' && mounted && pageLoadTime && (
+            <p className="text-xs text-gray-400 mt-2">
+              Page loaded: {pageLoadTime}
+            </p>
+          )}
         </header>
 
         {/* Subject Grid */}
