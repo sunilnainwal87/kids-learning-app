@@ -26,7 +26,7 @@ export default function EnglishPage() {
           <div className="text-8xl mb-4">📚</div>
           <h1 className="text-5xl font-bold text-white mb-4">English Adventure!</h1>
           <p className="text-2xl text-white opacity-90">
-            Let's read, write, and learn together!
+            Let&apos;s read, write, and learn together!
           </p>
         </header>
 

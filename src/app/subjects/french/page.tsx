@@ -26,7 +26,7 @@ export default function FrenchPage() {
           <div className="text-8xl mb-4">🇫🇷</div>
           <h1 className="text-5xl font-bold text-white mb-4">French Fun!</h1>
           <p className="text-2xl text-white opacity-90">
-            Bonjour! Let's learn French together!
+            Bonjour! Let&apos;s learn French together!
           </p>
         </header>
 

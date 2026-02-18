@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { subjects } from '@/lib/subjects';
 import SubjectCard from '@/components/SubjectCard';
 import { QuizResult } from '@/types';

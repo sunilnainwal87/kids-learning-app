@@ -56,7 +56,7 @@ export default function GeographyQuizPage() {
             <div className="text-8xl mb-6">🌍</div>
             <h1 className="text-5xl font-bold mb-4">Geography Quiz</h1>
             <p className="text-2xl mb-2">Ready to explore the world?</p>
-            <p className="text-xl opacity-90">You'll have {quiz.questions.length} questions to answer!</p>
+            <p className="text-xl opacity-90">You&apos;ll have {quiz.questions.length} questions to answer!</p>
           </motion.div>
 
           <motion.div
@@ -77,7 +77,7 @@ export default function GeographyQuizPage() {
               </li>
               <li className="flex items-start">
                 <span className="text-2xl mr-3">✓</span>
-                <span>You'll see the correct answer after each question</span>
+                <span>You&apos;ll see the correct answer after each question</span>
               </li>
               <li className="flex items-start">
                 <span className="text-2xl mr-3">✓</span>

@@ -26,7 +26,7 @@ export default function MathPage() {
           <div className="text-8xl mb-4">🔢</div>
           <h1 className="text-5xl font-bold text-white mb-4">Math Adventure!</h1>
           <p className="text-2xl text-white opacity-90">
-            Let's learn numbers and have fun!
+            Let&apos;s learn numbers and have fun!
           </p>
         </header>
 
