@@ -23,3 +23,26 @@ export interface UserProgress {
   points: number;
   badges: string[];
 }
+
+export interface QuizQuestion {
+  id: number;
+  question: string;
+  options: string[];
+  correctAnswer: number; // index of correct option
+  explanation?: string;
+}
+
+export interface Quiz {
+  subjectId: string;
+  title: string;
+  questions: QuizQuestion[];
+}
+
+export interface QuizResult {
+  subjectId: string;
+  score: number;
+  totalQuestions: number;
+  percentage: number;
+  incorrectQuestions: number[];
+  date: string;
+}

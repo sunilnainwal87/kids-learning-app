@@ -3,12 +3,12 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-export default function MathPage() {
+export default function GeographyPage() {
   const lessons = [
-    { id: 1, title: 'Counting 1-20', difficulty: 'easy', icon: '1️⃣' },
-    { id: 2, title: 'Addition Fun', difficulty: 'easy', icon: '➕' },
-    { id: 3, title: 'Subtraction', difficulty: 'medium', icon: '➖' },
-    { id: 4, title: 'Shapes', difficulty: 'easy', icon: '🔷' },
+    { id: 1, title: 'Continents & Oceans', difficulty: 'easy', icon: '🌊' },
+    { id: 2, title: 'Countries & Capitals', difficulty: 'medium', icon: '🗺️' },
+    { id: 3, title: 'Mountains & Rivers', difficulty: 'medium', icon: '⛰️' },
+    { id: 4, title: 'Our Planet Earth', difficulty: 'easy', icon: '🌍' },
   ];
 
   return (
@@ -22,16 +22,16 @@ export default function MathPage() {
         </Link>
 
         {/* Header */}
-        <header className="text-center mb-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-3xl p-12 shadow-2xl">
-          <div className="text-8xl mb-4">🔢</div>
-          <h1 className="text-5xl font-bold text-white mb-4">Math Adventure!</h1>
+        <header className="text-center mb-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-12 shadow-2xl">
+          <div className="text-8xl mb-4">🌍</div>
+          <h1 className="text-5xl font-bold text-white mb-4">Geography Adventure!</h1>
           <p className="text-2xl text-white opacity-90">
-            Let&apos;s learn numbers and have fun!
+            Explore the world and learn about amazing places!
           </p>
         </header>
 
         {/* Quiz Button */}
-        <Link href="/subjects/math/quiz">
+        <Link href="/subjects/geography/quiz">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -41,7 +41,7 @@ export default function MathPage() {
             <div className="flex items-center gap-4 text-white">
               <div className="text-5xl">🎯</div>
               <div className="flex-1">
-                <h3 className="text-2xl font-bold mb-2">Take Math Quiz</h3>
+                <h3 className="text-2xl font-bold mb-2">Take Geography Quiz</h3>
                 <p className="text-lg opacity-90">Test your knowledge with 10 questions!</p>
               </div>
               <div className="text-3xl">▶️</div>
