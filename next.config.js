@@ -7,10 +7,6 @@ const nextConfig = {
         protocol: 'http',
         hostname: 'localhost',
       },
-      {
-        protocol: 'https',
-        hostname: 'localhost',
-      },
     ],
   },
   // Enable webpack watching for better hot reload
