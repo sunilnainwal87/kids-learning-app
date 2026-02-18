@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { subjects } from '@/lib/subjects';
 import SubjectCard from '@/components/SubjectCard';
 import { QuizResult } from '@/types';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   const [quizResults, setQuizResults] = useState<QuizResult[]>([]);
@@ -66,6 +68,38 @@ export default function Home() {
             </p>
           )}
         </header>
+
+        {/* Quiz Challenge Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-12"
+        >
+          <Link href="/quiz-challenge">
+            <div className="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 rounded-3xl p-8 md:p-12 shadow-2xl hover:shadow-3xl transition-all transform hover:scale-105 cursor-pointer text-white">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="flex-1 text-center md:text-left">
+                  <div className="text-5xl md:text-6xl mb-3">🎮 🏆</div>
+                  <h2 className="text-3xl md:text-4xl font-bold mb-3">
+                    NEW! Quiz Challenge Arena
+                  </h2>
+                  <p className="text-lg md:text-xl opacity-90 mb-2">
+                    ✨ 20 Questions per Subject • Interactive Leaderboard • Compete with Friends
+                  </p>
+                  <p className="text-base md:text-lg opacity-80">
+                    Enter your name, choose a subject, and aim for the top score!
+                  </p>
+                </div>
+                <div className="flex-shrink-0">
+                  <div className="bg-white text-purple-600 px-8 py-4 rounded-2xl font-bold text-xl md:text-2xl shadow-lg">
+                    Play Now →
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </motion.div>
 
         {/* Subject Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
