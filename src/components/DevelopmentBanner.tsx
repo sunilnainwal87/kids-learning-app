@@ -16,7 +16,7 @@ export default function DevelopmentBanner() {
       // Log to console to help with debugging
       console.log('%c🛠️ Development Mode Active', 'color: #4F46E5; font-size: 16px; font-weight: bold;');
       console.log('%c✓ Hot reload enabled - changes will appear automatically', 'color: #10B981;');
-      console.log('%c⚡ Not seeing changes? Try Ctrl+Shift+R (hard refresh)', 'color: #F59E0B;');
+      console.log('%c⚡ Not seeing changes? Try hard refresh: Ctrl+Shift+R (Win/Linux) or Cmd+Shift+R (Mac)', 'color: #F59E0B;');
       console.log('%c📖 Having issues? Check DEVELOPMENT_GUIDE.md', 'color: #F97316;');
       
       // Show timestamp of page load
@@ -104,7 +104,7 @@ export default function DevelopmentBanner() {
             </p>
             <p className="flex items-center gap-2">
               <span className="text-yellow-300">⚡</span>
-              <span><strong>Not seeing changes?</strong> Click the &quot;Force Refresh&quot; button or press <code className="bg-white/20 px-2 py-0.5 rounded">Ctrl+Shift+R</code></span>
+              <span><strong>Not seeing changes?</strong> Click the &quot;Force Refresh&quot; button or hard refresh: <code className="bg-white/20 px-2 py-0.5 rounded">Ctrl+Shift+R</code> (Win/Linux) or <code className="bg-white/20 px-2 py-0.5 rounded">Cmd+Shift+R</code> (Mac)</span>
             </p>
             <p className="flex items-center gap-2">
               <span className="text-orange-300">📖</span>
