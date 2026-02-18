@@ -25,7 +25,7 @@ export default function UserNameInput({ onSubmit }: UserNameInputProps) {
     }
     
     if (name.trim().length > 20) {
-      setError('Name must be less than 20 characters!');
+      setError('Name must be 20 characters or less!');
       return;
     }
     

@@ -27,6 +27,16 @@ export default function ChallengeQuizComponent({
   const question = questions[currentQuestion];
   const isLastQuestion = currentQuestion === questions.length - 1;
 
+  const getSubjectName = (id: string) => {
+    const names: { [key: string]: string } = {
+      math: 'Math',
+      science: 'Science',
+      geography: 'Geography',
+      english: 'English'
+    };
+    return names[id] || id;
+  };
+
   // Timer
   useEffect(() => {
     const timer = setInterval(() => {
@@ -99,7 +109,7 @@ export default function ChallengeQuizComponent({
           </div>
           <div>
             <p className="font-bold text-lg text-gray-800">{playerName}</p>
-            <p className="text-sm text-gray-600">Playing {subjectId}</p>
+            <p className="text-sm text-gray-600">Playing {getSubjectName(subjectId)}</p>
           </div>
         </div>
         <div className="text-right">
