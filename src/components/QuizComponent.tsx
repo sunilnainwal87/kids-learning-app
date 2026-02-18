@@ -50,11 +50,15 @@ export default function QuizComponent({ questions, subjectId, onComplete }: Quiz
           date: new Date().toISOString(),
         };
 
-        // Save to localStorage
-        const savedResults = localStorage.getItem('quizResults');
-        const results = savedResults ? JSON.parse(savedResults) : [];
-        results.push(result);
-        localStorage.setItem('quizResults', JSON.stringify(results));
+        // Save to localStorage with error handling
+        try {
+          const savedResults = localStorage.getItem('quizResults');
+          const results = savedResults ? JSON.parse(savedResults) : [];
+          results.push(result);
+          localStorage.setItem('quizResults', JSON.stringify(results));
+        } catch (error) {
+          console.error('Failed to save quiz results to localStorage:', error);
+        }
 
         onComplete(result);
       } else {
@@ -71,13 +75,13 @@ export default function QuizComponent({ questions, subjectId, onComplete }: Quiz
       <div className="mb-8">
         <div className="flex justify-between text-sm text-gray-600 mb-2">
           <span>Question {currentQuestion + 1} of {questions.length}</span>
-          <span>{Math.round(((currentQuestion) / questions.length) * 100)}% Complete</span>
+          <span>{Math.round(((currentQuestion + 1) / questions.length) * 100)}% Complete</span>
         </div>
         <div className="w-full bg-gray-200 rounded-full h-3">
           <motion.div
             className="bg-gradient-to-r from-purple-500 to-pink-500 h-3 rounded-full"
             initial={{ width: 0 }}
-            animate={{ width: `${((currentQuestion) / questions.length) * 100}%` }}
+            animate={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
             transition={{ duration: 0.5 }}
           />
         </div>

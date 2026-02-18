@@ -12,16 +12,22 @@ export default function Home() {
 
   useEffect(() => {
     // Load quiz results from localStorage
-    const savedResults = localStorage.getItem('quizResults');
-    if (savedResults) {
-      const results: QuizResult[] = JSON.parse(savedResults);
-      setQuizResults(results);
-      setTotalQuizzesTaken(results.length);
-      
-      if (results.length > 0) {
-        const avg = results.reduce((sum, r) => sum + r.percentage, 0) / results.length;
-        setAverageScore(Math.round(avg));
+    try {
+      const savedResults = localStorage.getItem('quizResults');
+      if (savedResults) {
+        const results: QuizResult[] = JSON.parse(savedResults);
+        setQuizResults(results);
+        setTotalQuizzesTaken(results.length);
+        
+        if (results.length > 0) {
+          const avg = results.reduce((sum, r) => sum + r.percentage, 0) / results.length;
+          setAverageScore(Math.round(avg));
+        }
       }
+    } catch (error) {
+      console.error('Failed to load quiz results from localStorage:', error);
+      // Clear corrupted data
+      localStorage.removeItem('quizResults');
     }
   }, []);
 
