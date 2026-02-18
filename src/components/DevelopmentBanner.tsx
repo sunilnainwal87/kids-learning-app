@@ -17,12 +17,14 @@ export default function DevelopmentBanner() {
       console.log('%c🛠️ Development Mode Active', 'color: #4F46E5; font-size: 16px; font-weight: bold;');
       console.log('%c✓ Hot reload enabled - changes will appear automatically', 'color: #10B981;');
       console.log('%c⚡ Not seeing changes? Try hard refresh: Ctrl+Shift+R (Win/Linux) or Cmd+Shift+R (Mac)', 'color: #F59E0B;');
+      console.log('%c🔄 Force cache clear: Clear browser data OR click Force Refresh button', 'color: #EF4444;');
       console.log('%c📖 Having issues? Check DEVELOPMENT_GUIDE.md', 'color: #F97316;');
       
       // Show timestamp of page load
       const now = new Date().toLocaleTimeString();
       setLastRefresh(now);
       console.log(`%c🕐 Page loaded at: ${now}`, 'color: #6366F1;');
+      console.log(`%c📅 Build timestamp: ${new Date().toISOString()}`, 'color: #8B5CF6;');
       
       // Check if user has dismissed it before (only on client side)
       if (typeof window !== 'undefined') {

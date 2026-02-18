@@ -11,26 +11,32 @@
 
 Try these in order:
 
-#### 1. Hard Refresh (Fastest - Try this first!)
+#### 2. Hard Refresh (Fastest - Try this first!)
 - **Windows/Linux**: `Ctrl + Shift + R`
 - **Mac**: `Cmd + Shift + R`
 
-#### 2. Clear Cache and Restart
+#### 3. Clear Cache and Restart (Recommended!)
 ```bash
-# Press Ctrl+C to stop the server, then:
+# OPTION 1: Use the automated script (Linux/Mac)
+./clear-cache.sh
+
+# OPTION 2: Windows users
+clear-cache.bat
+
+# OPTION 3: Manual cleanup
 npm run dev:fresh
 ```
 
-#### 3. Check Your Browser
+#### 4. Check Your Browser
 - Open DevTools: Press `F12`
 - Go to Console tab
 - Look for error messages
 
-#### 4. Verify File is Saved
+#### 5. Verify File is Saved
 - Make sure you saved the file: `Ctrl + S` or `Cmd + S`
 - Check for asterisk (*) in your editor's file tab
 
-#### 5. Nuclear Option (Always works!)
+#### 6. Nuclear Option (Always works!)
 ```bash
 # Stop server (Ctrl+C), then:
 npm run clean
