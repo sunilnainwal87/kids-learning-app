@@ -17,7 +17,7 @@ export default function DevServerStatus() {
     if (isDev) {
       // Log helpful information to console
       console.log('%c✓ Development server is running', 'color: #10B981; font-weight: bold;');
-      console.log('%cIf you make changes and don\'t see them:', 'color: #F59E0B;');
+      console.log("%cIf you make changes and don't see them:", 'color: #F59E0B;');
       console.log('%c  1. Make sure you saved the file (Ctrl+S or Cmd+S)', 'color: #6B7280;');
       console.log('%c  2. Wait 1-2 seconds for auto-reload', 'color: #6B7280;');
       console.log('%c  3. Try hard refresh: Ctrl+Shift+R (Win/Linux) or Cmd+Shift+R (Mac)', 'color: #6B7280;');
