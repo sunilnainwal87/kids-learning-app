@@ -31,10 +31,33 @@ An interactive educational web application for kids in Class 2-3 to learn Scienc
    - **Mac**: Press `Cmd + Space`, type `terminal`, press Enter
    - **Linux**: Press `Ctrl + Alt + T`
 
-3. **Navigate to the project folder**:
-   ```bash
-   cd path/to/kids-learning-app
-   ```
+3. **Find and navigate to the project folder**:
+
+   First, you need to know **where** the `kids-learning-app` folder is on your computer.
+   The easiest way is to **drag and drop** the folder into the terminal instead of typing the path:
+
+   **🪟 Windows (easiest method):**
+   - Open **File Explorer** (press `Win + E`)
+   - Find the `kids-learning-app` folder (check your Downloads, Desktop, or wherever you saved it)
+   - Type `cd ` (with a space after it) in the Command Prompt window
+   - Then **drag the `kids-learning-app` folder** from File Explorer and **drop it** into the Command Prompt window — the path will appear automatically!
+   - Press `Enter`
+
+   **🍎 Mac (easiest method):**
+   - Open **Finder** (click the smiley face icon in your Dock)
+   - Find the `kids-learning-app` folder (check Downloads, Desktop, or Documents)
+   - Type `cd ` (with a space after it) in the Terminal window
+   - Then **drag the `kids-learning-app` folder** from Finder and **drop it** into the Terminal window — the path will appear automatically!
+   - Press `Enter`
+
+   **🐧 Linux:**
+   - Open your file manager and find the `kids-learning-app` folder
+   - Right-click inside the folder and choose **"Open Terminal Here"** — this opens a terminal already in the right place, so you can skip this step entirely!
+
+   > 💡 **Don't know where you saved the folder?**
+   > - **Windows**: Open File Explorer and search for `kids-learning-app` in the search bar (top-right)
+   > - **Mac**: Open Finder, press `Cmd + F`, and search for `kids-learning-app`
+   > - The folder is most commonly in your **Downloads** or **Desktop**
 
 4. **Install the app**:
    ```bash
