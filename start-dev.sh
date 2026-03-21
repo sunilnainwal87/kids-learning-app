@@ -93,19 +93,34 @@ echo -e "${PURPLE}━━━━━━━━━━━━━━━━━━━━�
 echo -e "${BLUE}Starting development server...${NC}"
 echo -e "${PURPLE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
-echo -e "${YELLOW}📌 IMPORTANT INSTRUCTIONS:${NC}"
-echo -e "   1. ${GREEN}Wait for 'Ready in X seconds'${NC} message"
-echo -e "   2. ${GREEN}Open your browser${NC} to: ${BLUE}http://localhost:3000${NC}"
-echo -e "   3. ${GREEN}Keep this terminal open${NC} while using the app"
-echo -e "   4. To stop the server: Press ${RED}Ctrl+C${NC}"
-echo ""
-echo -e "${YELLOW}💡 TIPS:${NC}"
-echo -e "   • Changes to code will ${GREEN}automatically reload${NC} in the browser"
-echo -e "   • If changes don't appear, press ${BLUE}Ctrl+Shift+R${NC} to hard refresh"
-echo -e "   • Watch this terminal for any error messages"
+echo -e "${YELLOW}📌 Your browser will open automatically once the server is ready.${NC}"
+echo -e "   ${GREEN}Keep this terminal open${NC} while using the app."
+echo -e "   To stop the server: Press ${RED}Ctrl+C${NC}"
 echo ""
 echo -e "${PURPLE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
-# Start the dev server
-npm run dev
+# Start the dev server in the background so we can watch for the ready message
+npm run dev &
+SERVER_PID=$!
+
+# Wait until the server is ready, then open the browser automatically
+echo -e "${BLUE}⏳ Waiting for server to be ready...${NC}"
+while ! curl -s http://localhost:3000 > /dev/null 2>&1; do
+    sleep 1
+done
+
+echo -e "${GREEN}✅ Server is ready!${NC}"
+echo -e "${BLUE}🌐 Opening http://localhost:3000 in your browser...${NC}"
+
+# Open the browser (works on Mac, Linux with desktop, and WSL)
+if command_exists xdg-open; then
+    xdg-open "http://localhost:3000" 2>/dev/null &
+elif command_exists open; then
+    open "http://localhost:3000" 2>/dev/null &
+else
+    echo -e "${YELLOW}👉 Please open your browser and go to: ${BLUE}http://localhost:3000${NC}"
+fi
+
+# Wait for the server process to finish (keeps terminal open)
+wait $SERVER_PID

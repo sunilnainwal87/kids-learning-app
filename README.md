@@ -10,6 +10,49 @@ An interactive educational web application for kids in Class 2-3 to learn Scienc
 - 🎨 Kid-friendly, colorful UI
 - 📱 Responsive design
 
+---
+
+## 🟢 FOR NON-TECHNICAL USERS — Start Here!
+
+> No coding knowledge needed. Just follow these 3 steps.
+
+### Step 1 — Install Node.js (one-time only)
+
+1. Go to **https://nodejs.org/**
+2. Click the big green **"LTS"** download button (recommended for most users)
+3. Open the downloaded file and follow the installer (keep clicking **Next / Continue**)
+4. **Restart your computer** when the installer finishes
+
+### Step 2 — Start the App
+
+**🪟 Windows users:**
+1. Open the `kids-learning-app` folder on your computer
+2. Find the file called **`start-dev.bat`**
+3. **Double-click** `start-dev.bat`
+4. A black command window will open — wait a moment while it sets up
+5. **Your browser will open automatically** at http://localhost:3000 🎉
+
+**🍎 Mac / Linux users:**
+1. Open the `kids-learning-app` folder in Finder
+2. Find the file called **`start-dev.sh`**
+3. Right-click it → choose **"Open With" → "Terminal"**
+   *(On Mac you may need to go to System Preferences → Security and allow it to run)*
+4. Wait a moment while it sets up
+5. **Your browser will open automatically** at http://localhost:3000 🎉
+
+### Step 3 — Use the App
+
+- The app opens in your web browser at **http://localhost:3000**
+- Choose a subject (Math, Science, Geography, etc.) and start learning!
+- **Keep the terminal / command window open** while you use the app — closing it will stop the app
+- To stop the app: click on the terminal window and press **Ctrl + C**
+
+> 💡 **Next time you want to use the app**, just repeat Step 2 — you don't need to reinstall Node.js again.
+
+> ❓ **Something not working?** See the [Troubleshooting guide](./TROUBLESHOOTING.md) or scroll down to the "Can't See Your Changes?" section below.
+
+---
+
 ## Tech Stack
 
 - Next.js 14+ (App Router)
@@ -17,7 +60,7 @@ An interactive educational web application for kids in Class 2-3 to learn Scienc
 - Tailwind CSS
 - Framer Motion
 
-## 🚀 Quick Start - For Parents & Kids!
+## 🚀 Developer Quick Start
 
 ### First Time Setup (Do this once)
 
@@ -31,39 +74,10 @@ An interactive educational web application for kids in Class 2-3 to learn Scienc
    - **Mac**: Press `Cmd + Space`, type `terminal`, press Enter
    - **Linux**: Press `Ctrl + Alt + T`
 
-3. **Find and navigate to the project folder**:
-
-   First, you need to know **where** the `kids-learning-app` folder is on your computer.
-   The easiest way is to **drag and drop** the folder into the terminal instead of typing the path:
-
-   **🪟 Windows (easiest method):**
-   - Open **File Explorer** (press `Win + E`)
-   - Find the `kids-learning-app` folder (check your Downloads, Desktop, or wherever you saved it)
-   - Type `cd ` (with a space after it) in the Command Prompt window
-   - Then **drag the `kids-learning-app` folder** from File Explorer and **drop it** into the Command Prompt window — the path will appear automatically!
-   - Press `Enter`
-
-   **🍎 Mac (easiest method):**
-   - Open **Finder** (click the smiley face icon in your Dock)
-   - Find the `kids-learning-app` folder (check Downloads, Desktop, or Documents)
-   - Type `cd ` (with a space after it) in the Terminal window
-   - Then **drag the `kids-learning-app` folder** from Finder and **drop it** into the Terminal window — the path will appear automatically!
-   - Press `Enter`
-
-   **🐧 Linux:**
-   - Open your file manager and find the `kids-learning-app` folder
-   - Right-click inside the folder and choose **"Open Terminal Here"** — this opens a terminal already in the right place, so you can skip this step entirely!
-
-   > 💡 **Don't know where you saved the folder?**
-   > - **Windows**: Open File Explorer and search for `kids-learning-app` in the search bar (top-right)
-   > - **Mac**: Open Finder, press `Cmd + F`, and search for `kids-learning-app`
-   > - The folder is most commonly in your **Downloads** or **Desktop**
-
-4. **Install the app**:
+3. **Navigate to the project folder** in the terminal, then install dependencies:
    ```bash
    npm install
    ```
-   (This might take a few minutes)
 
 ### Running the App (Every time you want to use it)
 
