@@ -73,22 +73,20 @@ if %ERRORLEVEL% EQU 0 (
 
 echo.
 echo ========================================================
-echo All checks passed! Starting development server...
-echo ========================================================
-echo.
-echo IMPORTANT INSTRUCTIONS:
-echo   1. Wait for "Ready in X seconds" message
-echo   2. Open your browser to: http://localhost:3000
-echo   3. Keep this window OPEN while using the app
-echo   4. To stop: Press Ctrl+C
-echo.
-echo TIPS:
-echo   - Code changes will automatically reload in browser
-echo   - If changes don't appear, press Ctrl+Shift+R
-echo   - Watch this window for error messages
-echo.
+echo All checks passed!
 echo ========================================================
 echo.
 
-:: Start the dev server
+:: Launch a background helper that waits for the server then opens the browser
+start /b powershell -NoProfile -Command "while(!(Test-NetConnection -ComputerName localhost -Port 3000 -InformationLevel Quiet -ErrorAction SilentlyContinue)){Start-Sleep -Seconds 2}; Write-Host '[OK] Server is ready! Opening browser...'; Start-Process 'http://localhost:3000'"
+
+echo.
+echo ========================================================
+echo   Starting server - your browser will open automatically
+echo   Keep this window OPEN while using the app
+echo   To stop: Press Ctrl+C
+echo ========================================================
+echo.
+
+:: Start the dev server in the foreground (keeps this window alive)
 call npm run dev
