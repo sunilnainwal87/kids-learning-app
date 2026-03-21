@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  turbopack: {
+    root: __dirname,
+  },
   // Disable ETag generation to prevent conditional requests with old cached content
   generateEtags: false,
   images: {
